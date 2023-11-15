@@ -24,8 +24,6 @@ sudo docker run hello-world
 ```
 Adding dockers site to our source list, and install necessary packages, and validate installation.\n
 
-Docker Installation Help[https://docs.docker.com/engine/install/ubuntu/]
-
-
+[https://docs.docker.com/engine/install/ubuntu/](Docker Installation Help)
 
 
