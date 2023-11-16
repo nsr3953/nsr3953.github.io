@@ -1,3 +1,5 @@
+# Installing Docker
+
 ```
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
 ```
@@ -26,4 +28,61 @@ Adding dockers site to our source list, and install necessary packages, and vali
 
 https://docs.docker.com/engine/install/ubuntu/
 
+
+# Installing PiHole
+
+https://pimylifeup.com/pi-hole-docker/
+
+```
+docker pull pihole/pihole
+mkdir pihole
+cd pihole
+```
+Grabbing our pihole docker image
+
+```
+nano docker-compose.yml
+```
+```
+version: "3"
+
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "67:67/udp"
+      - "8000:80/tcp"
+    environment:
+      TZ: 'America/Chicago'
+      WEBPASSWORD: 'password'
+    volumes:
+      - './etc-pihole:/etc/pihole'
+      - './etc-dnsmasq.d:/etc/dnsmasq.d'
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+```
+
+Creating our docker compose file
+
+```
+systemctl stop systemd-resolved
+systemctl disable systemd-resolved
+```
+Stopping our OS's resolve service since the pihole will do this for us
+
+```
+nano /etc/resolv.conf
+```
+Changing the nameserver to point to cloudflare's (1.1.1.1)
+
+```
+docker-compose up -d
+```
+Finally starting our docker container
+
+![image](https://github.com/nsr3953/nsr3953.github.io/assets/100631946/c1d2bb54-c411-4bf2-b110-5d3609ecff9f)
 
