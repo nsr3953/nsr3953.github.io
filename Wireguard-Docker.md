@@ -1,6 +1,6 @@
 ---
 title: Wireguard-Docker
-filename: WireguardDocker.md
+filename: Wireguard-Docker.md
 --- 
 ### Installing Docker On the Droplet
 ```bash
