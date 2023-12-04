@@ -89,6 +89,5 @@ Starting our docker container and pulling up the QR codes to connect
 
 ### Phone 
 
-![[Pasted image 20231204152959.png]]
+![image](https://github.com/nsr3953/nsr3953.github.io/assets/100631946/dbbdc57e-10f8-4587-a3e6-54f0dba6c363)
 
-![[Pasted image 20231204152943.png]]
